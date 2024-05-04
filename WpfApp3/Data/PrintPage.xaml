@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp3.Data"
-      mc:Ignorable="d" 
+      
       Width="96"
       Height="450"
       
@@ -27,14 +27,15 @@
         </Grid.ColumnDefinitions>
 
 
-        <Image Grid.Row="0"  Grid.Column="1"  Source="/Data/logo_01.png"/>
+        <Image Grid.Row="0"  Grid.Column="0"  Source="/Data/logo_01.png"/>
         <Image Grid.Row="1"  Grid.Column="1"  Source="/Data/Infinity.png"/>
+        <Border BorderBrush="Black" BorderThickness="2"></Border>
         <Image Grid.Row="2"  Grid.Column="1"  Source="/Data/fluent-validation-logo.png"/>
-        <TextBlock Grid.Row="0" FontSize="7" Text="هولووو موولوبيسببيسشبيسشسيب"/>
-        <TextBlock Grid.Row="1" FontSize="7" Text="12331428347832782437824318142478378"/>
-        <TextBlock Grid.Row="2" FontSize="7" Text="هولووو شيسبسييسب"/>
-        <TextBlock Grid.Row="3" FontSize="7" Text="هولووو موولو"/>
-        <TextBlock Grid.Row="4" FontSize="7" Text="هولووو موولو"/>
-        <TextBlock Grid.Row="5" FontSize="7" Text="هولووو موولو"/>
+        <TextBlock Grid.Row="0" FontSize="14" Text="هولووو موولوبيسببيسشبيسشسيب"/>
+        <TextBlock Grid.Row="1" FontSize="14" Text="12331428347832782437824318142478378"/>
+        <TextBlock Grid.Row="2" FontSize="14" Text="هولووو شيسبسييسب"/>
+        <TextBlock Grid.Row="3" FontSize="14" Text="هولووو موولو"/>
+        <TextBlock Grid.Row="4" FontSize="14" Text="هولووو موولو"/>
+        <TextBlock Grid.Row="5" FontSize="14" Text="هولووو موولو"/>
     </Grid>
 </Page>

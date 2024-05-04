@@ -53,6 +53,9 @@ public partial class MainWindow : Window
         // Load your WPF page into a UserControl
         PrintPage printPage = new PrintPage();
 
+
+        fixedPage.Width = printPage.Width;
+       fixedPage.Height = printPage.Height;
         // Create a VisualBrush from the WPF page
         VisualBrush visualBrush = new VisualBrush(printPage);
         Rectangle rect = new Rectangle();
@@ -62,6 +65,7 @@ public partial class MainWindow : Window
 
         // Add the rectangle to the FixedPage
         fixedPage.Children.Add(rect);
+        AddContentToPage(fixedPage, "lol", $"{AppPath}/Data/logo_01.png");
 
         // Add the FixedPage to the FixedDocument
         PageContent pageContent = new PageContent();
@@ -72,6 +76,52 @@ public partial class MainWindow : Window
         return fixedDocument;
     }
 
+    private FixedDocument CreateReportDocument2()
+    {
+        FixedDocument fixedDocument = new FixedDocument();
+
+        // Load your WPF page into a UserControl
+        PrintPage printPage = new PrintPage();
+
+        // Create a FixedPage
+        FixedPage fixedPage = new FixedPage();
+        fixedPage.Width = printPage.Width;
+        fixedPage.Height = printPage.Height;
+
+        // Capture the visual content of the PrintPage
+        RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)printPage.Width, (int)printPage.Height, 96, 96, PixelFormats.Pbgra32);
+        renderTargetBitmap.Render(printPage);
+
+        // Create an image control to display the captured content
+        Image image = new Image();
+        image.Source = renderTargetBitmap;
+        fixedPage.Children.Add(image);
+        
+        // Add the FixedPage to the FixedDocument
+        PageContent pageContent = new PageContent();
+        ((IAddChild)pageContent).AddChild(fixedPage);
+        fixedDocument.Pages.Add(pageContent);
+      
+        return fixedDocument;
+    }
+
+
+    private void AddContentToPage(FixedPage page, string content, string imagePath)
+    {
+        TextBlock textBlock = new TextBlock();
+        textBlock.Text = content;
+        textBlock.FontSize = 24;
+        textBlock.Margin = new Thickness(96, 96, 96, 0); // Set the margin (1 inch from top)
+
+        Image image = new Image();
+        image.Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+        image.Width = 200;
+        image.Height = 200;
+        image.Margin = new Thickness(96, 200, 0, 0); // Set the margin (1 inch from left, 2 inches from top)
+
+        page.Children.Add(textBlock);
+        page.Children.Add(image);
+    }
 
     //private void PrintButton_Click(object sender, RoutedEventArgs e)
     //{
