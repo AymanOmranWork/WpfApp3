@@ -54,19 +54,18 @@ public partial class MainWindow : Window
         PrintPage printPage = new PrintPage();
 
 
-       // fixedPage.Width = printPage.Width;
-       //fixedPage.Height = printPage.Height;
-       // // Create a VisualBrush from the WPF page
-       // VisualBrush visualBrush = new VisualBrush(printPage);
-       // Rectangle rect = new Rectangle();
-       // rect.Width = printPage.Width; // Set width
-       // rect.Height = printPage.Height; // Set height
-       // rect.Fill = visualBrush;
+        fixedPage.Width = printPage.Width;
+        fixedPage.Height = printPage.Height;
+        // Create a VisualBrush from the WPF page
+        VisualBrush visualBrush = new VisualBrush(printPage);
+        Rectangle rect = new Rectangle();
+        rect.Width = printPage.Width; // Set width
+        rect.Height = printPage.Height; // Set height
+        rect.Fill = visualBrush;
 
-       // // Add the rectangle to the FixedPage
-       // fixedPage.Children.Add(rect);
-        AddContentToPage(fixedPage, "lol", $"{AppPath}/Data/logo_01.png");
-
+        // Add the rectangle to the FixedPage
+        fixedPage.Children.Add(rect);
+    
         // Add the FixedPage to the FixedDocument
         PageContent pageContent = new PageContent();
         ((IAddChild)pageContent).AddChild(fixedPage);
