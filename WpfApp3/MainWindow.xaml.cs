@@ -19,6 +19,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+       
     }
 
     public string AppPath = System.IO.Path.GetDirectoryName(Environment.ProcessPath);

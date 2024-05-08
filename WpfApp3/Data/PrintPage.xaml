@@ -16,7 +16,6 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-      
-
+        <TextBlock Text="radis easton"/>
     </Grid>
 </Page>
